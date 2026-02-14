@@ -25,7 +25,7 @@ def in_env_output() -> None:
     print(f"{getsitepackages()[0]}")
 
 
-def out_env_output():
+def out_env_output() -> None:
     '''
         #   Output message for when the script is not running inside a venv.
     '''
@@ -43,7 +43,7 @@ def out_env_output():
     print('\nThen run this program again.')
 
 
-def main_exec():
+def main_exec() -> None:
     '''
         #   Main execution program.
         #   Checks whether the script is running inside a venv or not.
@@ -72,7 +72,7 @@ def main_exec():
         out_env_output()
 
 
-def main():
+def main() -> None:
     '''
         #   Small main program.
     '''

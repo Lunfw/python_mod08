@@ -1,6 +1,4 @@
-from os import path
 from sys import exit
-from numpy import array
 
 
 def get_pandas() -> bool:
@@ -46,12 +44,14 @@ def makeplot() -> None:
     import matplotlib.pyplot as plt
     try:
         plt.plot([1, 2, 3, 4, 5], [1, 4, 9, 16, 25])
-        plt.title('Simple Plot')
-        plt.xlabel('X-axis')
-        plt.ylabel('Y-axis')
+        plt.title('Plot Example')
+        plt.xlabel('X')
+        plt.ylabel('Y')
     except Exception as e:
         print(f'Error generating plot: {e}')
+        return (False)
     plt.savefig('simple_plot.png')
+    return (True)
 
 
 def main_exec() -> bool:
