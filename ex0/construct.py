@@ -11,6 +11,10 @@ class EnvErrors(GeneralErrors):
     pass
 
 
+class PackageErrors(GeneralErrors):
+    pass
+
+
 def in_env_output() -> None:
     '''
         #   Output message for when the script is running inside a venv.
