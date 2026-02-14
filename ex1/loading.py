@@ -39,13 +39,27 @@ def get_matplotlib() -> bool:
     return (False)
 
 
+def makeplot() -> None:
+    '''
+        #   Generate a plot using matplotlib.
+    '''
+    import matplotlib.pyplot as plt
+    try:
+        plt.plot([1, 2, 3, 4, 5], [1, 4, 9, 16, 25])
+        plt.title('Simple Plot')
+        plt.xlabel('X-axis')
+        plt.ylabel('Y-axis')
+    except Exception as e:
+        print(f'Error generating plot: {e}')
+    plt.savefig('simple_plot.png')
+
+
 def main_exec() -> bool:
     '''
         #   Main execution program.
     '''
     print('Checking dependencies:')
     try:
-        import matplotlib.pyplot as plt
         get_pandas()
         get_requests()
         get_matplotlib()
@@ -57,19 +71,8 @@ def main_exec() -> bool:
     print('Processing 1000 data points...')
     print('Generating visualisation...\n')
 
-    try:
-        from pandas import Series
-        n = array([1, 2, 3, 4, 5])
-        s = Series(n, index=[1, 2, 3, 4, 5])
-        s.plot(kind='bar')
-        plt.ylabel('wtf am i doing')
-        plt.xlabel('SIX. SEVEN.')
-        plt.title('aura monster graph')
-        plt.savefig('matrix_analysis.png')
-    except Exception as e:
-        print(f'Error loading dependencies: {e}')
-        return (False)
-    return (True)
+    return (makeplot())
+
 
 def main() -> None:
     '''
@@ -81,6 +84,7 @@ def main() -> None:
         print('Results saved to: matrix_analysis.png')
         exit(1)
     print('Analysis could not be completed.')
+
 
 if (__name__ == '__main__'):
     main()
