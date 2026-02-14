@@ -10,7 +10,7 @@ def check_env() -> bool:
     '''
     if (not path.exists('.env')):
         print('# Could not load configuration!', file=stderr)
-        print('# Make sure .env exists in the current directory.\n')
+        print('# Make sure .env exists in the current directory.')
         print("\n-> 'cp .env.example .env' then run this program again.")
         return (False)
     return (True)
