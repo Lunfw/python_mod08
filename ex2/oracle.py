@@ -44,10 +44,11 @@ def find_secrets() -> None:
     '''
         #   Check whether .env contains hardcoded secrets.
     '''
+    exclude: tuple = ('secret', 'password', 'token')
     with open('.env', 'r') as file:
         for lineno, line in enumerate(file, start=1):
-            if 'secret' in line.lower():
-                print(f'[KO] wtf, secret in .env?! -> L{lineno}', file=stderr)
+            if (word in line for word in exclude):
+                print(f'[KO] wtf, {word} in .env?! -> L{lineno}', file=stderr)
                 file.close()
                 return
         print('[OK] No hardcoded secrets detected')
