@@ -11,7 +11,10 @@ class EnvErrors(GeneralErrors):
     pass
 
 
-def in_env_output():
+def in_env_output() -> None:
+    '''
+        #   Output message for when the script is running inside a venv.
+    '''
     print("\nSUCCESS: You're in an isolated environment!")
     print("Safe to install packages without affecting the global system.\n")
     print('Package installation path:')
@@ -38,7 +41,8 @@ def out_env_output():
 
 def main_exec():
     '''
-        #   Whether the script is running inside a venv or not.
+        #   Main execution program.
+        #   Checks whether the script is running inside a venv or not.
     '''
     venv: bool = ('VIRTUAL_ENV' in environ)
     try:
